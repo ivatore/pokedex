@@ -14,7 +14,6 @@ import org.springframework.ws.transport.context.TransportContextHolder;
 
 import com.example.soap.pokemon.PokemonResponse;
 
-
 @Service
 public class PokeApiService {
 
@@ -25,39 +24,39 @@ public class PokeApiService {
 		String url = "https://pokeapi.co/api/v2/pokemon/" + pokemonName;
 		return restTemplate.getForObject(url, String.class);
 	}
-	
+
 	public PokemonResponse consultPokedexFormat(JSONObject pokemonJson) {
 		// Construir la respuesta SOAP
-				PokemonResponse response = new PokemonResponse();
-				response.setName(pokemonJson.getString("name"));
-				response.setId(pokemonJson.getInt("id"));
-				response.setBaseExperience(pokemonJson.getInt("base_experience"));
+		PokemonResponse response = new PokemonResponse();
+		response.setName(pokemonJson.getString("name"));
+		response.setId(pokemonJson.getInt("id"));
+		response.setBaseExperience(pokemonJson.getInt("base_experience"));
 
-				// Abilities
-				List<String> abilities = new ArrayList<>();
-				JSONArray abilitiesArray = pokemonJson.getJSONArray("abilities");
-				for (int i = 0; i < abilitiesArray.length(); i++) {
-					abilities.add(abilitiesArray.getJSONObject(i).getJSONObject("ability").getString("name"));
-				}
-				response.setAbilities(abilities);
+		// Abilities
+		List<String> abilities = new ArrayList<>();
+		JSONArray abilitiesArray = pokemonJson.getJSONArray("abilities");
+		for (int i = 0; i < abilitiesArray.length(); i++) {
+			abilities.add(abilitiesArray.getJSONObject(i).getJSONObject("ability").getString("name"));
+		}
+		response.setAbilities(abilities);
 
-				// Held Items
-				List<String> heldItems = new ArrayList<>();
-				JSONArray heldItemsArray = pokemonJson.getJSONArray("held_items");
-				for (int i = 0; i < heldItemsArray.length(); i++) {
-					heldItems.add(heldItemsArray.getJSONObject(i).getJSONObject("item").getString("name"));
-				}
-				response.setHeldItems(heldItems);
+		// Held Items
+		List<String> heldItems = new ArrayList<>();
+		JSONArray heldItemsArray = pokemonJson.getJSONArray("held_items");
+		for (int i = 0; i < heldItemsArray.length(); i++) {
+			heldItems.add(heldItemsArray.getJSONObject(i).getJSONObject("item").getString("name"));
+		}
+		response.setHeldItems(heldItems);
 
-				// Location Area Encounters
-				response.setLocationAreaEncounters(pokemonJson.getString("location_area_encounters"));
+		// Location Area Encounters
+		response.setLocationAreaEncounters(pokemonJson.getString("location_area_encounters"));
 
-				TransportContext context = TransportContextHolder.getTransportContext();
-				try {
-					System.out.println(context.getConnection().getUri().toString());
-				} catch (URISyntaxException e) {
-					e.printStackTrace();
-				}
-				return response;
+		TransportContext context = TransportContextHolder.getTransportContext();
+		try {
+			System.out.println(context.getConnection().getUri().toString());
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return response;
 	}
 }
