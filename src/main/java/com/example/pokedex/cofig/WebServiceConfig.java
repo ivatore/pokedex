@@ -38,4 +38,5 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	XsdSchema pokemonSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("/soap/pokemon.xsd"));
 	}
+
 }

@@ -74,7 +74,7 @@ public class PokeApiService {
 
 		BitacoraEntity bit = new BitacoraEntity();
 		bit.setFecha(new Date());
-		bit.setMetodo(req.getPathInfo() + "consulta: " + pokemonJson.getString("name"));
+		bit.setMetodo(req.getPathInfo() + " - consulta: " + pokemonJson.getString("name"));
 		bit.setDuracion_ms(duration);
 		bit.setIpOrigen(req.getRemoteAddr());
 
