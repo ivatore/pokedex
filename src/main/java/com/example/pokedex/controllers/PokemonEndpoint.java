@@ -11,9 +11,9 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import com.example.pokedex.entity.PokemonResponse;
 import com.example.pokedex.service.PokeApiService;
 import com.example.soap.pokemon.PokemonRequest;
-import com.example.soap.pokemon.PokemonResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 

@@ -17,7 +17,7 @@ import org.springframework.ws.transport.context.TransportContext;
 import org.springframework.ws.transport.context.TransportContextHolder;
 
 import com.example.pokedex.controllers.BitacoraEntity;
-import com.example.soap.pokemon.PokemonResponse;
+import com.example.pokedex.entity.PokemonResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 
