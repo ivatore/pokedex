@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>pokedex</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.2.1</version>
 	<name>pokedex</name>
 	<description>Technical challenge of Bankaya para Erik Ivan Angeles Resendiz</description>
 	<properties>
