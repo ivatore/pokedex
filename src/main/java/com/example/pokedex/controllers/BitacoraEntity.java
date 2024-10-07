@@ -24,6 +24,6 @@ public class BitacoraEntity {
 	private String ipOrigen;
 	private Date fecha;
 	private String metodo;
-	private long duracion;
+	private long duracion_ms;
 
 }

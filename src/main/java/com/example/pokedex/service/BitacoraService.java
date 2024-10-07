@@ -15,11 +15,11 @@ public class BitacoraService {
 	@Autowired
 	private BitacoraRepository bitacoraRepository;
 
-	void registrarEvento(BitacoraEntity bitacora) {
+	public void registrarEvento(BitacoraEntity bitacora) {
 		bitacoraRepository.save(bitacora);
 	}
 
-	List<BitacoraEntity> registros() {
+	public List<BitacoraEntity> registros() {
 		return bitacoraRepository.findAll().isEmpty() ? new ArrayList<>() : bitacoraRepository.findAll();
 	}
 
